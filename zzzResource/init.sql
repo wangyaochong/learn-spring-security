@@ -100,7 +100,7 @@ CURRENT_TIMESTAMP(0),
 PRIMARY KEY (`client_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '接入客户端信息'
 ROW_FORMAT = Dynamic;
-INSERT INTO test.oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, create_time, archived, trusted, autoapprove) VALUES ('c1', 'res1', 'secret1', 'ROLE_API,ROLE_ADMIN', 'authorization_code,password,client_credentials,implicit,refresh_token', 'http://xxx', 'r2', 72000, 72000, null, '2020-03-24 08:07:12', 1, 1, '0');
+INSERT INTO oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, create_time, archived, trusted, autoapprove) VALUES ('c1', 'res1', 'secret1', 'ROLE_API,ROLE_ADMIN', 'authorization_code,password,client_credentials,implicit,refresh_token', 'http://xxx', 'r2', 72000, 72000, null, '2020-03-24 08:07:12', 1, 1, '0');
 
 DROP TABLE IF EXISTS `oauth_code`;
 CREATE TABLE `oauth_code` (
