@@ -1,0 +1,44 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+# 授权码模式获取授权码的url
+GET http://localhost:53020/uaa/oauth/authorize?client_id=c1&response_type=code&scope=all&redirect_uri=http://xxx
+###
+#授权码模式申请token的url
+POST http://localhost:53020/uaa/oauth/token?client_id=c1&client_secret=secret1&grant_type=authorization_code&code=Ml6Jg9&redirect_uri=http://xxx
+
+######################################################
+
+#简化模式申请token的url，会直接返回token
+GET http://localhost:53020/uaa/oauth/authorize?client_id=c1&response_type=token&scope=all&redirect_uri=http://xxx
+
+#####################################
+#密码模式申请token的url
+POST http://localhost:53020/uaa/oauth/token?client_id=c1&client_secret=secret1&grant_type=password&username=lisi&password=456&redirect_uri=http://xxx
+
+########################################
+# 客户端模式申请token=url，这种模式是最不安全的
+
+POST http://localhost:53020/uaa/oauth/token?client_id=c1&client_secret=secret1&grant_type=client_credentials&redirect_uri=http://xxx
+######################################
+
+
+########################以上是申请token###########################################
+###################################################################
+
+#检验token的url
+POST http://localhost:53020/uaa/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsTmFtZVwiOlwibGlzaVwiLFwiaWRcIjpcIjJcIixcIm1vYmlsZVwiOlwiMjIyMlwiLFwicGFzc3dvcmRcIjpcIjQ1NlwiLFwidXNlcm5hbWVcIjpcImxpc2lcIn0iLCJzY29wZSI6WyJhbGwiXSwiZXhwIjoxNTg1MDQyMDEyLCJhdXRob3JpdGllcyI6WyJwMiJdLCJqdGkiOiJiMDM0ZTM2YS0wNmYwLTQ1NWQtYjZjYy1lYjA3ODkwMzIyMjYiLCJjbGllbnRfaWQiOiJjMSJ9.eUtdj3hMCkF-L30uDtlVqAfCRllrxEI5ULeODH3AyiI
+
+
+###
+
+
+##通过网关访问服务
+http://192.168.56.1:53010/order/r2
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsTmFtZVwiOlwibGlzaVwiLFwiaWRcIjpcIjJcIixcIm1vYmlsZVwiOlwiMjIyMlwiLFwicGFzc3dvcmRcIjpcIjQ1NlwiLFwidXNlcm5hbWVcIjpcImxpc2lcIn0iLCJzY29wZSI6WyJST0xFX0FQSSIsIlJPTEVfQURNSU4iXSwiZXhwIjoxNTg1MTEyMzUyLCJhdXRob3JpdGllcyI6WyJwMiJdLCJqdGkiOiI1MTc1MGRiZS01NmY2LTQwMTItYmJmNC00Mzc2NjQyZDI2NDciLCJjbGllbnRfaWQiOiJjMSJ9.xha156wvrdMaAV8mhUOrgWLKSN0jfCnE0vYYR9pvn64
+
+###
